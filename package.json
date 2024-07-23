@@ -3,14 +3,15 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "scripts": {
-    "dev": "vite",
+ "scripts": {
+    "dev:client": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "cd server && npm run dev",
-    "devv": "concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm dev\" \"npm run server\""
+    "dev:server": "cd server && npm run dev",
+    "dev": "npx concurrently -n \"client,server\" -c \"bgBlue,bgYellow\" \"npm run dev:client\" \"npm run dev:server\""
   },
+
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
@@ -43,6 +44,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
+    "concurrently": "^8.2.2",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
